@@ -1,0 +1,12 @@
+{
+    "name": "root/api-login-sms-php",
+    "authors": [
+        {
+            "name": "Envia-Movil",
+            "email": "soporte@envia.ec"
+        }
+    ],
+    "require": {
+        "league/oauth2-client": "^2.2"
+    }
+}
