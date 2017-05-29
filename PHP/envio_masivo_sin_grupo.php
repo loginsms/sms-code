@@ -25,8 +25,32 @@ try {
     );
 
     //Agregamos al request el json necesario para enviar un mensaje masivo
+    //to_contacts //MAX 500
     $request->getBody()->write(json_encode([
-        'to_numbers' => ['5492804324496','5492804324425'],
+        'to_contacts' =>[
+                    [
+                    'number' => '5492804324495',
+                    'name' => 'Alberto',
+                    'lastName' => 'Sanchez',
+                    'vars' => [
+                        'var1' => 'A',
+                        'var2' => 'B',
+                        'var3' => 'C',
+                        'var4' => 'D'
+                        ]
+                    ],
+                    [
+                    'number' => '5492804259324',
+                    'name' => 'Perez',
+                    'lastName' => 'Jose',
+                    'vars' => [
+                        'var1' => 'A',
+                        'var2' => 'B',
+                        'var3' => 'C',
+                        'var4' => 'D'
+                        ]
+                    ]
+                ]
         'content' => 'Prueba masiva de api'
     ]));
 
