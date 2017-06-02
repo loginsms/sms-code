@@ -5,8 +5,8 @@ require 'vendor/autoload.php';
 use League\OAuth2;
 
 $provider = new OAuth2\Client\Provider\GenericProvider([
-    'clientId'                => 'CLIENT_ID',    // Buscar en http://www.login-sms.com/api-management
-    'clientSecret'            => 'CLIENT_SECRET',   // Buscar en http://www.login-sms.com/api-management
+    'clientId'                => 'RJ6JhG1pzqZjmJn',    // Buscar en http://www.login-sms.com/api-management
+    'clientSecret'            => 'GwmeB5IQJUM3ZTS',   // Buscar en http://www.login-sms.com/api-management
     'redirectUri'             => 'http://example.com/your-redirect-url/',
     'urlAuthorize'            => '',
     'urlAccessToken'          => 'http://api.login-sms.com/token',
@@ -20,38 +20,22 @@ try {
     //Armamos el request para enviar un sms simple
     $request = $provider->getAuthenticatedRequest(
         'POST',
-        'http://api.login-sms.com/messages/send-batch',
+        'http://api.login-sms.com/messages/send-batch-list',
         $accessToken
     );
 
     //Agregamos al request el json necesario para enviar un mensaje masivo
     //to_contacts //MAX 500
     $request->getBody()->write(json_encode([
-        'to_contacts' =>[
-                    [
-                    'number' => '5492804324495',
-                    'name' => 'Alberto',
-                    'lastName' => 'Sanchez',
-                    'vars' => [
-                        'var1' => 'A',
-                        'var2' => 'B',
-                        'var3' => 'C',
-                        'var4' => 'D'
-                        ]
-                    ],
-                    [
-                    'number' => '5492804259324',
-                    'name' => 'Perez',
-                    'lastName' => 'Jose',
-                    'vars' => [
-                        'var1' => 'A',
-                        'var2' => 'B',
-                        'var3' => 'C',
-                        'var4' => 'D'
-                        ]
-                    ]
+       'content' => 'Test',
+            'to_contacts' => [
+                [
+                    'number' => '5492804324493'
+                ],
+                [
+                    'number' => '5492804324493'
                 ]
-        'content' => 'Prueba masiva de api'
+            ]
     ]));
 
     $response = $provider->getResponse($request);
