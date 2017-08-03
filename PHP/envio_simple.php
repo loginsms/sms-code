@@ -5,11 +5,11 @@ require 'vendor/autoload.php';
 use League\OAuth2;
 
 $provider = new OAuth2\Client\Provider\GenericProvider([
-    'clientId'                => 'CLIENT_ID',    // Buscar en http://www.login-sms.com/api-management
-    'clientSecret'            => 'CLIENT_SECRET',   // Buscar en http://www.login-sms.com/api-management
-    'redirectUri'             => 'http://example.com/your-redirect-url/',
+    'clientId'                => 'RJ6JhG1pzqZjmJn',    // Buscar en http://www.login-sms.com/api-management
+    'clientSecret'            => 'GwmeB5IQJUM3ZTS',   // Buscar en http://www.login-sms.com/api-management
+    'redirectUri'             => 'https://example.com/your-redirect-url/',
     'urlAuthorize'            => '',
-    'urlAccessToken'          => 'http://api.login-sms.com/token',
+    'urlAccessToken'          => 'https://api.login-sms.com/token',
     'urlResourceOwnerDetails' => ''
 ]);
 
@@ -20,7 +20,7 @@ try {
     //Armamos el request para enviar un sms simple
     $request = $provider->getAuthenticatedRequest(
         'POST',
-        'http://api.login-sms.com/messages/send',
+        'https://api.login-sms.com/messages/send',
         $accessToken
     );
 
